@@ -742,18 +742,28 @@ blockquote strong { font-style: normal; color: var(--text); font-weight: 600; }
 .price-card.popular .included { color: rgba(255,255,255,0.7) !important; }
 
 .popular-label {
+  display: none;
+}
+.pricing-cards-wrapper {
+  position: relative;
+  margin-top: 40px;
+}
+.popular-badge {
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: -32px;
+  left: calc(33.333% + 1px);
+  width: calc(33.333% - 2px);
   background: var(--accent);
   text-align: center;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: white !important;
+  color: white;
   padding: 6px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
-.price-card.popular { padding-top: 48px; }
+.price-card.popular { padding-top: 36px; }
 
 .price-name {
   font-size: 13px;
@@ -871,8 +881,8 @@ footer {
     <li><a href="#how">How it works</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#" class="nav-btn-ghost">Log in</a></li>
-    <li><a href="#pricing" class="nav-btn-solid">Start free trial</a></li>
+    <li><a href="https://dorad-smb-compass.lovable.app/login" class="nav-btn-ghost">Log in</a></li>
+    <li><a href="https://dorad-smb-compass.lovable.app/signup" class="nav-btn-solid" style="color:#ffffff;">Start free trial</a></li>
   </ul>
 </nav>
 
@@ -880,7 +890,7 @@ footer {
 <section class="hero">
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    7-day free trial · No credit card required
+    7-day free trial on Lite · Credit card required
   </div>
   <p class="hero-eyebrow">Billion-dollar deals are complex. Small business acquisitions are a nightmare.</p>
   <h1 class="hero-headline">SMB acquisitions.<br><span class="accent">Reinvented.</span></h1>
@@ -888,10 +898,10 @@ footer {
     <strong>Endless listings. Poor data. Unclear timelines.</strong> Dorad gives you the clarity to manage small business acquisitions from search to close — all in one place.
   </p>
   <div class="hero-ctas">
-    <a href="#pricing" class="btn-primary">Start for free →</a>
+    <a href="https://dorad-smb-compass.lovable.app/signup" class="btn-primary">Start for free →</a>
     <a href="#how" class="btn-outline">See how it works</a>
   </div>
-  <p class="hero-note">No credit card required &nbsp;·&nbsp; 7-day free trial &nbsp;·&nbsp; Cancel anytime</p>
+  <p class="hero-note">7-day free trial on Lite &nbsp;·&nbsp; Start Core or Pro directly &nbsp;·&nbsp; Cancel anytime</p>
 
   <!-- PRODUCT SCREENSHOT -->
   <div class="hero-visual">
@@ -1028,15 +1038,15 @@ footer {
 <!-- STATS -->
 <div class="stats-strip reveal">
   <div class="stat-item">
-    <div class="stat-number">2<span>yr</span></div>
+    <div class="stat-number" style="color:var(--accent)">2 years</div>
     <div class="stat-label">Average time to close<br>an SMB acquisition</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">&gt;<span>50</span>%</div>
+    <div class="stat-number" style="color:var(--accent)">&gt;50%</div>
     <div class="stat-label">Reduction in timeline<br>for Dorad users</div>
   </div>
   <div class="stat-item">
-    <div class="stat-number">10<span>k+</span></div>
+    <div class="stat-number" style="color:var(--accent)">10k+</div>
     <div class="stat-label">New listings aggregated<br>weekly from BizBuySell</div>
   </div>
 </div>
@@ -1153,7 +1163,7 @@ footer {
     <div class="testimonial-wrap">
       <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
       <blockquote>
-        "Marty was working a full-time job and browsing BizBuySell on the side. Even with a background in corporate M&A, he was overwhelmed by how disorganized SMB deal hunting was. <strong>After signing up with Dorad, he found a deal in 3 months — and closed it in 6.</strong>"
+        "I was working a full-time job and browsing BizBuySell on the side. Even with a background in corporate M&A, I was overwhelmed by how disorganized SMB deal hunting was. <strong>After signing up with Dorad, I found a deal in 3 months — and closed it in 6.</strong>"
       </blockquote>
       <div class="testimonial-person">
         <div class="person-avatar">M</div>
@@ -1171,7 +1181,7 @@ footer {
   <div class="pricing-header">
     <div class="eyebrow" style="justify-content:center;">Pricing</div>
     <h2 class="section-title" style="text-align:center;">Start free. Upgrade as you go.</h2>
-    <p style="text-align:center;color:var(--text-2);font-size:16px;margin-top:8px;">7-day free trial on every plan. No credit card required.</p>
+    <p style="text-align:center;color:var(--text-2);font-size:16px;margin-top:8px;">Lite includes a 7-day free trial. Core and Pro can skip the trial and start immediately.</p>
   </div>
   <div class="pricing-toggle-wrap">
     <div class="billing-toggle">
@@ -1179,6 +1189,8 @@ footer {
       <button class="tog-btn active" id="tbtn-annual" onclick="setAnnual()">Annual <span class="save-pill">SAVE 30%</span></button>
     </div>
   </div>
+  <div class="pricing-cards-wrapper">
+    <div class="popular-badge">MOST POPULAR</div>
   <div class="pricing-cards">
 
     <!-- LITE -->
@@ -1188,9 +1200,7 @@ footer {
       <div class="price-period">/ month</div>
       <div class="price-billed" id="b-lite">Billed annually · $720/yr</div>
       <div class="price-desc">Deal search and pipeline tracking for the searcher just getting started.</div>
-      <a href="#" class="price-cta-btn outline">Start free trial</a>
-      <div class="price-divider"></div>
-      <div class="features-label">What's included</div>
+      <a href="https://dorad-smb-compass.lovable.app/signup?plan=lite" class="price-cta-btn outline">Start free trial</a>
       <ul class="feature-list">
         <li><span class="feature-check">✓</span><span class="check-text">Full BizBuySell database, updated nightly</span></li>
         <li><span class="feature-check">✓</span><span class="check-text">Advanced filters & saved searches</span></li>
@@ -1205,13 +1215,12 @@ footer {
 
     <!-- CORE -->
     <div class="price-card popular">
-      <div class="popular-label">MOST POPULAR</div>
       <div class="price-name">Core</div>
       <div class="price-amount"><sup>$</sup><span id="p-core">100</span></div>
       <div class="price-period">/ month</div>
       <div class="price-billed" id="b-core">Billed annually · $1,200/yr</div>
       <div class="price-desc">Automated deal flow and AI analysis for serious searchers moving fast.</div>
-      <a href="#" class="price-cta-btn">Start free trial</a>
+      <a href="https://dorad-smb-compass.lovable.app/signup?plan=core" class="price-cta-btn">Start free trial</a>
       <div class="price-divider"></div>
       <div class="features-label included">Everything in Lite, plus</div>
       <ul class="feature-list">
@@ -1233,7 +1242,7 @@ footer {
       <div class="price-period">/ month</div>
       <div class="price-billed" id="b-pro">Billed annually · $3,000/yr</div>
       <div class="price-desc">The full Dorad suite. For buyers closing deals, not just searching for them.</div>
-      <a href="#" class="price-cta-btn outline">Start free trial</a>
+      <a href="https://dorad-smb-compass.lovable.app/signup?plan=pro" class="price-cta-btn outline">Start free trial</a>
       <div class="price-divider"></div>
       <div class="features-label">Everything in Core, plus</div>
       <ul class="feature-list">
@@ -1248,7 +1257,7 @@ footer {
       </ul>
     </div>
   </div>
-  <p class="pricing-footnote">All plans start with a <strong>7-day free trial</strong> (Lite features). Upgrade anytime. No credit card required.</p>
+  </div><!-- end pricing-cards-wrapper -->Lite starts with a <strong>7-day free trial</strong> (credit card required). Core and Pro can start immediately or try Lite free first. Cancel anytime.</p>
 </section>
 
 <!-- FINAL CTA -->
@@ -1256,8 +1265,8 @@ footer {
   <div class="eyebrow" style="justify-content:center;color:rgba(255,255,255,0.5);">Ready?</div>
   <h2 class="section-title">Your deal is out there.<br>Go find it.</h2>
   <p class="section-body">Join searchers who stopped drowning in spreadsheets and started closing deals.</p>
-  <a href="#pricing" class="btn-primary">Start your free trial →</a>
-  <p class="hero-note">No credit card required · Cancel anytime</p>
+  <a href="https://dorad-smb-compass.lovable.app/signup" class="btn-primary">Start your free trial →</a>
+  <p class="hero-note">7-day free trial on Lite · Cancel anytime</p>
 </div>
 
 <!-- FOOTER -->
